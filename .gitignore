@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+## MCNP output file
+outp0
+mctal
+outp0.xlsx
+*/outp0
+*/mctal
+*/outp0.xlsx
+test/data/*
