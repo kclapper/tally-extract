@@ -1,0 +1,52 @@
+name: release
+
+## Runs all project tests and make sure they all pass.
+## Afterwards it builds x86 executables for both Windows and Linux
+## and puts them in a release.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    tags:
+      - v*.*.*
+
+jobs:
+  test and build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Racket
+        uses: Bogdanp/setup-racket@v1.8.1
+        with:
+          version: 'stable'
+
+      - name: Test excel functions
+        run: raco test excel.rkt
+
+
+      - name: Test mcnp functions
+        run: raco test mcnp
+
+      - name: Create Linux executable
+        run: raco exe --embed-dlls -o tally-extract main.rkt
+
+      - name: Setup Racket cross-compiler
+        run: raco pkg install raco-cross
+
+      - name: Build bytecode for Windows platform
+        run: raco cross --target x86_64-windows make
+
+      - name: Create Windows executable
+        run: raco cross --target x86_64-windows exe -o tally-extract.exe main.rkt
+
+      - name: Upload executables to action.
+        uses: actions/upload-artifact@v3
+        with:
+          path: |
+            tally-extract
+            tally-extract.exe

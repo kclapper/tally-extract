@@ -1,0 +1,121 @@
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua. 
+Nisi est sit amet facilisis magna etiam. Rhoncus aenean vel elit scelerisque 
+mauris pellentesque pulvinar pellentesque habitant. 
+Pellentesque adipiscing commodo elit at imperdiet dui accumsan. Orci a 
+scelerisque purus semper eget duis at. 
+Purus gravida quis blandit turpis cursus in hac. Rutrum quisque non tellus orci
+ ac. Vitae purus faucibus ornare suspendisse sed nisi. 
+Volutpat sed cras ornare arcu dui. Pellentesque nec nam aliquam sem et tortor 
+consequat id. Ultrices dui sapien eget mi proin sed libero enim.
+
+Quisque egestas diam in arcu cursus. Aliquam purus sit amet luctus venenatis 
+lectus magna. 
+Semper quis lectus nulla at volutpat diam ut venenatis. In est ante in nibh 
+mauris. 
+Et sollicitudin ac orci phasellus egestas. Semper auctor neque vitae tempus 
+quam pellentesque nec. Massa eget egestas purus viverra. Ultrices sagittis orci
+ a scelerisque purus semper eget duis at. Ultrices sagittis orci a scelerisque 
+ purus semper eget. Integer vitae justo eget magna. Etiam tempor orci eu 
+ lobortis elementum. Vitae suscipit tellus mauris a diam maecenas. Vulputate 
+ odio ut enim blandit volutpat. Diam vel quam elementum pulvinar etiam non. 
+ Amet cursus sit amet dictum sit amet justo. Quam id leo in vitae turpis massa
+  sed elementum tempus. Nisl pretium fusce id velit ut tortor pretium viverra 
+  suspendisse. Ut morbi tincidunt augue interdum.
+
+
+1tally       36        nps =   656130540
+           tally type 6    track length estimate of heating.            units   mev/gram  
+           tally for  neutrons 
+ number of histories used for normalizing tallies =    640000000.00
+
+           masses  
+                   cell:     16500        16501        16502        16503        16504        16505        16506   
+                         1.00000E+00  1.00000E+00  1.00000E+00  1.00000E+00  1.00000E+00  1.00000E+00  1.00000E+00
+
+ 
+ cell  16500                                                                                                                           
+                 4.49953E-07 0.0070
+ 
+ cell  16501                                                                                                                           
+                 4.22015E-07 0.0072
+ 
+ cell  16502                                                                                                                           
+                 7.90535E-08 0.0092
+ 
+ cell  16503                                                                                                                           
+                 2.05260E-07 0.0080
+
+ cell  16504                                                                                                                           
+                 1.44381E-07 0.0073
+ 
+ cell  16505                                                                                                                           
+                 3.72449E-07 0.0048
+ 
+ cell  16506                                                                                                                           
+                 7.71863E-08 0.0093
+
+
+ ===================================================================================================================================
+mauris. 
+Et sollicitudin ac orci phasellus egestas. Semper auctor neque vitae tempus 
+quam pellentesque nec. Massa eget egestas purus viverra. Ultrices sagittis orci
+ a scelerisque purus semper eget duis at. Ultrices sagittis orci a scelerisque 
+ purus semper eget. Integer vitae justo eget magna. Etiam tempor orci eu 
+ lobortis elementum. Vitae suscipit tellus mauris a diam maecenas. Vulputate 
+ odio ut enim blandit volutpat. Diam vel quam elementum pulvinar etiam non. 
+ Amet cursus sit amet dictum sit amet justo. Quam id leo in vitae turpis massa
+  sed elementum tempus. Nisl pretium fusce id velit ut tortor pretium viverra 
+  suspendisse. Ut morbi tincidunt augue interdum.
+
+ 1tally       361        nps =   656130540
+           tally type 6    track length estimate of heating.            units   mev/gram  
+           tally for  neutrons 
+ number of histories used for normalizing tallies =    640000000.00
+
+           masses  
+                   cell:     16500        16501        16502        16503        16504        16505        16506   
+                         1.00000E+00  1.00000E+00  1.00000E+00  1.00000E+00  1.00000E+00  1.00000E+00  1.00000E+00
+
+ 
+ cell  16500                                                                                                                           
+                 4.49953E-07 0.0070
+ 
+ cell  16501                                                                                                                           
+                 4.22015E-07 0.0072
+ 
+ cell  16502                                                                                                                           
+                 7.90535E-08 0.0092
+ 
+ cell  16503                                                                                                                           
+                 2.05260E-07 0.0080
+ 
+ cell  16504                                                                                                                           
+                 1.44381E-07 0.0073
+ 
+ cell  16505                                                                                                                           
+                 3.72449E-07 0.0048
+ 
+ cell  16506                                                                                                                           
+                 7.71863E-08 0.0093
+
+
+ ===================================================================================================================================
+
+ photonuclear             0    0.            0.                  capture                  0    5.2545E-01    2.3240E-02
+ (n,xn)              832472    1.1959E-03    1.5300E-03          loss to (n,xn)      416211    5.9793E-04    3.8240E-03
+ prompt fission           0    0.            0.                  loss to fission          0    4.1108E-01    1.1927E-02
+ delayed fission          0    0.            0.                                                                        
+     total        640844169    1.0596E+00    2.0238E+00              total        640844165    1.0596E+00    2.0238E+00
+
+   number of neutrons banked                  427244        average time of (shakes)              cutoffs
+   neutron tracks per source particle  
+
+
+              problem        keff     standard deviation       68% confidence         95% confidence         99% confidence
+
+            first half     1.00336         0.00005           1.00331 to 1.00341     1.00327 to 1.00346     1.00323 to 1.00349
+           second half     1.00330         0.00005           1.00325 to 1.00335     1.00320 to 1.00340     1.00317 to 1.00343
+          final result     1.00333         0.00003           1.00330 to 1.00337     1.00326 to 1.00340     1.00324 to 1.00342
+
+ the first and second half values of k(collision/absorption/track length) appear to be the same at the 68 percent confidence level.
