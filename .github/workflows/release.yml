@@ -36,18 +36,23 @@ jobs:
 
       - name: Create Linux executable
         run: raco exe --embed-dlls -o tally-extract main.rkt
+        if: ${{ github.ref_type == 'tag' }}
 
       - name: Setup Racket cross-compiler
         run: raco pkg install --auto raco-cross
+        if: ${{ github.ref_type == 'tag' }}
 
       - name: Install Windows deps
         run: raco cross --target x86_64-win32 pkg install --auto simple-xlsx
+        if: ${{ github.ref_type == 'tag' }}
 
       - name: Build bytecode for Windows platform
         run: raco cross --target x86_64-win32 make main.rkt
+        if: ${{ github.ref_type == 'tag' }}
 
       - name: Create Windows executable
         run: raco cross --target x86_64-win32 exe -o tally-extract.exe main.rkt
+        if: ${{ github.ref_type == 'tag' }}
 
       - name: Create release with executables attached
         uses: softprops/action-gh-release@v1
