@@ -136,4 +136,12 @@ outp0.xlsx
 */outp0
 */mctal
 */outp0.xlsx
-test/data/*
+tests/data/private/*
+outp238_3
+
+## Racket stuff
+**/compiled/*
+tally-extract.exe
+
+## Mac Stuff
+.DS_Store
