@@ -13,9 +13,9 @@ on:
       - v*.*.*
 
 jobs:
-  test and build:
+  test-and-build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -25,9 +25,11 @@ jobs:
         with:
           version: 'stable'
 
+      - name: Install dependencies
+        run: raco pkg install --auto simple-xlsx
+
       - name: Test excel functions
         run: raco test excel.rkt
-
 
       - name: Test mcnp functions
         run: raco test mcnp
@@ -36,17 +38,21 @@ jobs:
         run: raco exe --embed-dlls -o tally-extract main.rkt
 
       - name: Setup Racket cross-compiler
-        run: raco pkg install raco-cross
+        run: raco pkg install --auto raco-cross
+
+      - name: Install Windows deps
+        run: raco cross --target x86_64-win32 pkg install --auto simple-xlsx
 
       - name: Build bytecode for Windows platform
-        run: raco cross --target x86_64-windows make
+        run: raco cross --target x86_64-win32 make main.rkt
 
       - name: Create Windows executable
-        run: raco cross --target x86_64-windows exe -o tally-extract.exe main.rkt
+        run: raco cross --target x86_64-win32 exe -o tally-extract.exe main.rkt
 
-      - name: Upload executables to action.
-        uses: actions/upload-artifact@v3
+      - name: Create release with executables attached
+        uses: softprops/action-gh-release@v1
+        if: ${{ github.ref_type == 'tag' }}
         with:
-          path: |
+          files: |
             tally-extract
             tally-extract.exe
