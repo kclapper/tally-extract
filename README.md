@@ -1,4 +1,6 @@
-# Tally Extract
+# Tally Extract 
+[![release](https://github.com/kclapper/tally-extract/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/kclapper/tally-extract/actions/workflows/release.yml)
+
 This is a command line program used to extract tally data from MCNP
 output files. It is primarily used by the Reactor Engineer at the MIT
 Nuclear Reactor Laboratory to help analyze data generated in the course
