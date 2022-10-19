@@ -33,8 +33,16 @@
          [keff (tally-ref `keff)]
          [top-rows (list (list "tally" "units" "type" "FMF" "J/MeV" "keff")
                          (list number units type FMF J/MeV keff))])
-    (append-symmetric top-rows
-                      ((hash-ref data `formatter) (hash-ref data `data-values)))))
+    (pad-grid (append top-rows
+                      (list (list ""))
+                      ((hash-ref data `formatter) (hash-ref data `data-values))))))
+
+(define (pad-grid list-grid)
+  (define max-length (apply max (map length list-grid)))
+  (for/list ([row list-grid])
+    (append row
+            (for/list ([i (in-range (- max-length (length row)))])
+              ""))))
 
 ;; Combines the top rows and data rows such that the overall
 ;; 2-D list dimensions are symmetric.

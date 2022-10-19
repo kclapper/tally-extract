@@ -99,10 +99,10 @@
 (define (type-4-format data-values)
   (pad-grid `(("volumes")
               ("cell:" ,@(map (lambda (volume) (hash-ref volume `cell#)) data-values))
-              ("segment")
-              ,@(segment-volume-format data-values)
-              ("")
-              ,@(energy-section-format data-values))))
+              ,@(pad-grid `(("segment")
+                            ,@(segment-volume-format data-values)
+                            ("")
+                            ,@(energy-section-format data-values))))))
 
 (define (pad-grid list-grid)
   (define max-length (apply max (map length list-grid)))
@@ -110,6 +110,11 @@
     (append row
             (for/list ([i (in-range (- max-length (length row)))])
               ""))))
+
+(define (grid-append grid-base grid-addon)
+  (for/list ([base grid-base]
+             [addon grid-addon])
+    `(,@base "          " ,@addon)))
 
 (define (segment-volume-format data-values)
   (foldl (lambda (volume segment-grid)
@@ -126,17 +131,21 @@
   (for/fold ([grid empty])
             ([volume data-values])
     (append grid
-            (for/fold ([grid empty])
-                      ([section (hash-ref volume `energy-sections)])
-              (append grid
-                      `(("cell" ,(hash-ref section `cell#))
-                        ("segment:" ,@(hash-ref section `facing-surface))
-                        ("energy")
-                        ,@(for/list ([energy (hash-ref section `energies)])
-                            (list (hash-ref energy `energy)
-                                  (hash-ref energy `value)
-                                  (hash-ref energy `error)))
-                        ("")))))))
+            (let* ([sections (hash-ref volume `energy-sections)])
+              (for/fold ([grid (single-energy-section-format (first sections))])
+                        ([section (rest sections)])
+                (grid-append grid
+                             (single-energy-section-format section)))))))
+
+(define (single-energy-section-format section)
+  (pad-grid `(("cell" ,(hash-ref section `cell#))
+              ("segment:" ,@(hash-ref section `facing-surface))
+              ("energy")
+              ,@(for/list ([energy (hash-ref section `energies)])
+                  (list (hash-ref energy `energy)
+                        (hash-ref energy `value)
+                        (hash-ref energy `error)))
+              (""))))
 
 (provide (all-defined-out))
 
