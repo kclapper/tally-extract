@@ -130,12 +130,14 @@
 (define (energy-section-format data-values)
   (for/fold ([grid empty])
             ([volume data-values])
-    (append grid
+      (append grid
             (let* ([sections (hash-ref volume `energy-sections)])
-              (for/fold ([grid (single-energy-section-format (first sections))])
-                        ([section (rest sections)])
-                (grid-append grid
-                             (single-energy-section-format section)))))))
+              (if (empty? sections)
+                  empty
+                  (for/fold ([grid (single-energy-section-format (first sections))])
+                            ([section (rest sections)])
+                    (grid-append grid
+                                 (single-energy-section-format section))))))))
 
 (define (single-energy-section-format section)
   (pad-grid `(("cell" ,(hash-ref section `cell#))

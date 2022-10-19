@@ -86,7 +86,7 @@
 
   (define sample-output-xlsx "tests/data/public/fake-out.xlsx")
 
-  (define single-sheet-sample-output-xlsx "tests/data/public/single sheet fake-out.xlsx")
+  (define single-sheet-sample-output-xlsx "tests/data/public/single-sheet-fake-out.xlsx")
 
 
   (define sample-tally `#hash((data . #hash((formatter . ,type-6-format)
