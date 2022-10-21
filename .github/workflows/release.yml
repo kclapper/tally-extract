@@ -51,7 +51,7 @@ jobs:
         if: ${{ github.ref_type == 'tag' }}
 
       - name: Create Windows executable
-        run: raco cross --target x86_64-win32 exe -o tally-extract.exe main.rkt
+        run: raco cross --target x86_64-win32 exe --embed-dlls -o tally-extract.exe main.rkt
         if: ${{ github.ref_type == 'tag' }}
 
       - name: Create release with executables attached
